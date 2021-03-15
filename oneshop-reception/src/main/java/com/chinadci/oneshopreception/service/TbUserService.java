@@ -7,6 +7,8 @@ import com.chinadci.oneshopreception.mapper.ITbUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  * 服务实现类
@@ -17,14 +19,22 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TbUserService {
+
     @Autowired
     private ITbUserMapper dao;
 
-    public void login() {
+    public List<TbUser> login(String uphone, String upwd) {
+        List<TbUser> list = null;
         QueryWrapper<TbUser> qw = new QueryWrapper<>();
-
-
-
+        qw.eq("userphone", uphone);
+        qw.eq("userpwd", upwd);
+        list = dao.selectList(qw);
+        return list;
     }
+
+    public int Insert(TbUser tbUser) {
+        return dao.insert(tbUser);
+    }
+
 
 }
