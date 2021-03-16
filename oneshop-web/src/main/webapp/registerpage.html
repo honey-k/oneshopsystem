@@ -40,10 +40,9 @@
             <div class="clear">
                 <div class="tableItem onlyItem fl">
                     <span class="userYZM">验证码</span>
-                    <input class="" id="yzm" type="text" required oninvalid="setCustomValidity('验证码不能为空!');"
-                           oninput="setCustomValidity('');" placeholder="请输入验证码"/>
+                    <input id="yzm" lay-verify="required|yanzhengma" type="text" placeholder="请输入验证码"/>
                 </div>
-                <a class="tableText fr" href="#">获取验证码</a>
+                <input class="tableText fr" type="button" id="hqyzm" style="border: none" value="获取验证码"/>
             </div>
             <div class="tableItem">
                 <span class="setPass">设置密码</span>
@@ -51,8 +50,7 @@
             </div>
             <div class="tableItem">
                 <span class="turePass">确认密码</span>
-                <input type="password" id="qrmm" required oninvalid="setCustomValidity('确认密码不能为空!');"
-                       oninput="setCustomValidity('');" placeholder="请输入确认密码"/>
+                <input type="password" id="qrmm" lay-verify="required|password" placeholder="请输入确认密码"/>
             </div>
             <p class="clickRegist">点击注册，表示您同意1号店 <a href="#">《服务协议》</a></p>
             <button class="tableBtn" lay-submit lay-filter="*">同意协议并注册</button>
@@ -86,25 +84,71 @@
                 if (!new RegExp("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,10}$").test(value)) {
                     return '必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间！';
                 }
-
+            },
+            yanzhengma: function (value, item) {
+                if (value == null) {
+                    return '验证码不能为空！';
+                }
+                if (!new RegExp("^[1-9]\\d*|0$").test(value)) {
+                    return '验证码只能输入数字！';
+                }
             }
         });
+        $("#hqyzm").click(function () {
+            if ($("#sjh").val().length == 0) {
+                layer.msg("手机号不能为空！", {time: 1500, icon: 5}, function () {
+                    $("#hqyzm").attr("disabled", true);
+                })
+            } else {
+                $("#hqyzm").attr("disabled", false);
+                $.post("http://localhost:8081/findphone", {"phone": $("#sjh").val()}, function (data) {
+                    if (data.size === 1) {
+                        layer.msg("该手机号已经被注册，请更换手机号！", {time: 3000, icon: 5});
+                        clearInterval(timer);
+                        $("#hqyzm").val("获取验证码");
+                    } else {
+                        sessionStorage.setItem("hqyzm", data.yanzm);
+                    }
+                })
+                var wait = 59;
+                $('#hqyzm').val(wait + 's');
+                timer = setInterval(function () {
+                    if (wait == 0) {
+                        $("#hqyzm").attr("disabled", false);
+                        $('#hqyzm').val('获取验证码');
+                        wait = 59;
+                        clearInterval(timer)
+                    } else {
+                        $("#hqyzm").attr("disabled", true);
+                        $('#hqyzm').val(wait + 's');
+                        wait--;
+                    }
+                }, 1000);
+            }
+        })
+
 
         form.on('submit(*)', function () {
             if ($("#mm").val() != $("#qrmm").val()) {
                 layer.msg("两次输入的密码不正确，请重新输入！", {time: 1500, icon: 5})
             } else {
-                $.post("http://localhost:8081/insert", {
-                    "userphone": $("#sjh").val(),
-                    "userpwd": $("#mm").val()
-                }, function (data) {
-                    if (data.data == 1) {
-                        layer.msg("注册成功，3秒后将跳转登录页面！", {time: 3000, icon: 6}, function () {
-                            location.href = "loginpage.html";
-                        })
-                    }
-                })
+                if ($("#yzm").val() === (sessionStorage.getItem("hqyzm"))) {
+                    $.post("http://localhost:8081/insert", {
+                        "userphone": $("#sjh").val(),
+                        "userpwd": $("#mm").val()
+                    }, function (data) {
+                        if (data.data == 1) {
+                            layer.msg("注册成功，3秒后将跳转登录页面！", {time: 3000, icon: 6}, function () {
+                                location.href = "loginpage.html";
+                                location.reload();
+                            })
+                        }
+                    })
+                } else {
+
+                }
             }
+
         })
 
 

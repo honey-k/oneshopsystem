@@ -86,6 +86,7 @@
                 if (data.size != 0) {
                     layer.msg("登录成功！", {time: 1500, icon: 6}, function () {
                         location.href = "index.html";
+                        sessionStorage.setItem("uname",data.data[0].username);
                     })
                 } else {
                     layer.msg("手机号或者密码错误，请重新输入！", {time: 1500, icon: 5}, function () {
