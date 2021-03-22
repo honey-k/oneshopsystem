@@ -27,8 +27,8 @@ public class TbUserService {
     public List<TbUser> login(String uphone, String upwd) {
         List<TbUser> list = null;
         QueryWrapper<TbUser> qw = new QueryWrapper<>();
-        qw.eq("userphone", uphone);
-        qw.eq("userpwd", upwd);
+        qw.eq("uphone", uphone);
+        qw.eq("upwd", upwd);
         list = dao.selectList(qw);
         return list;
     }
@@ -39,7 +39,7 @@ public class TbUserService {
 
     public List<TbUser> findphone(String phone) {
         QueryWrapper<TbUser> qw = new QueryWrapper<>();
-        qw.eq("userphone", phone);
+        qw.eq("uphone", phone);
         return dao.selectList(qw);
     }
 

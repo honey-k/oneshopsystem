@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一号店</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/shopcar.css">
+    <link rel="stylesheet" href="third-party/layui/css/layui.css">
+    <script src="third-party/layui/layui.js"></script>
+    <script src="third-party/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+<!--网页头部-->
+<header>
+    <div class="soubg">
+        <div class="sou fl">
+            <div class="s_city_b">
+                <span>送货至：四川</span>
+            </div>
+        </div>
+        <div class="fr top_right">
+            <div class="fl">
+                你好!请<a href="#">登录</a>
+                <a href="#" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|
+            </div>
+            <ul class="ss">
+                <li class="ss_list">
+                    <a href="#">收藏夹</a>
+                </li>
+                <li class="ss_list">
+                    <a href="#">客户服务</a>
+
+                    <div class="ss_list_bg">
+                        <div class="ss_list_c">
+                            <ul>
+                                <li><a href="#">包裹跟踪</a></li>
+                                <li><a href="#">创建问题</a></li>
+                                <li><a href="#">在线退换货</a></li>
+                                <li><a href="#">在线投诉</a></li>
+                                <li><a href="#">配送范围</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="ss_list">
+                    <a href="#">网站导航</a>
+                </li>
+            </ul>
+            <span class="fl">|&nbsp;关注我们：</span>
+            <span class="s_sh">
+                    <a href="#" class="sh1">新浪</a>
+                    <a href="#" class="sh2">微信</a>
+                </span>
+            <span class="fr">|&nbsp;
+                    <a href="#">手机版&nbsp;
+                        <img src="images/s_tel.png" align="absmiddle"/>
+                    </a>
+                </span>
+        </div>
+    </div>
+
+    <div class="top">
+        <div class="logo">
+            <a href="#">
+                <img src="images/logo.png"/>
+            </a>
+        </div>
+    </div>
+</header>
+<div id="gwcar">
+    <div id="topcar">
+        <ul style="margin-left: 10px">
+            <li>
+                <input type="checkbox" id="all" value=""/>
+                全选
+            </li>
+            <li style="margin-left: 55px">商品</li>
+            <li style="margin-left: 425px">单价</li>
+            <li style="margin-left: 90px">数量</li>
+            <li style="margin-left: 80px">小计</li>
+            <li>操作</li>
+        </ul>
+    </div>
+    <div id="centercar">
+        <ul id="carinfo">
+        </ul>
+    </div>
+
+
+    <div id="footcar">
+        <ul class="balance_ul1">
+            <li><a>删除选中商品</a></li>
+            <li><a>移到我的关注</a></li>
+            <li><a>清除下柜商品</a></li>
+        </ul>
+        <ul class="balance_ul2">
+            <li>已经选择<span id="tcount">0</span>件商品</li>
+            <li>总价<span id="tprice">￥<span id="number">0</span></span></li>
+            <li>
+                <button class="butt">去结算</button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!--网页底部-->
+<footer class="center">
+    <!-- Footer -->
+    <div class="b_btm_bg b_btm_c">
+        <ul class="b_btm">
+            <li>
+                <a><img src="images/b1.png" width="62" height="62"/></a>
+                <div><h2>正品保障</h2>正品行货 放心购买</div>
+            </li>
+            <li>
+                <a><img src="images/b2.png" width="62" height="62"/></a>
+                <div><h2>满38包邮</h2>满38包邮 免运费</div>
+            </li>
+            <li>
+                <a><img src="images/b3.png" width="62" height="62"/></a>
+                <div><h2>天天低价</h2>天天低价 畅选无忧</div>
+            </li>
+            <li>
+                <a><img src="images/b4.png" width="62" height="62"/></a>
+                <div><h2>准时送达</h2>收货时间由你做主</div>
+            </li>
+        </ul>
+    </div>
+    <div class="b_nav">
+        <dl>
+            <dt><a href="#">新手上路</a></dt>
+            <dd><a href="#">售后流程</a></dd>
+            <dd><a href="#">购物流程</a></dd>
+            <dd><a href="#">订购方式</a></dd>
+            <dd><a href="#">隐私声明</a></dd>
+            <dd><a href="#">推荐分享说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">配送与支付</a></dt>
+            <dd><a href="#">货到付款区域</a></dd>
+            <dd><a href="#">配送支付查询</a></dd>
+            <dd><a href="#">支付方式说明</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">会员中心</a></dt>
+            <dd><a href="#">资金管理</a></dd>
+            <dd><a href="#">我的收藏</a></dd>
+            <dd><a href="#">我的订单</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">服务保证</a></dt>
+            <dd><a href="#">退换货原则</a></dd>
+            <dd><a href="#">售后服务保证</a></dd>
+            <dd><a href="#">产品质量保证</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">联系我们</a></dt>
+            <dd><a href="#">网站故障报告</a></dd>
+            <dd><a href="#">购物咨询</a></dd>
+            <dd><a href="#">投诉与建议</a></dd>
+        </dl>
+        <div class="b_tel_bg">
+            <a href="#" class="b_sh1">新浪微博</a>
+            <a href="#" class="b_sh2">腾讯微博</a>
+
+            <p>
+                服务热线：<br/>
+                <span>400-123-4567</span>
+            </p>
+        </div>
+        <div class="b_er">
+            <div class="b_er_c"><img src="images/er.gif"/></div>
+            <img src="images/ss.png"/>
+        </div>
+    </div>
+    <div class="btmbg">
+        <div class="btm">
+            备案/许可证编号：蜀ICP备12009302号-1-www.dingguagua.com Copyright© 1号店网上超市 2007-2016，All Rights Reserved. 复制必究 ,
+            Technical Support: Dgg Group <br/>
+            <img src="images/b_1.gif"/>
+            <img src="images/b_2.gif"/>
+            <img src="images/b_3.gif"/>
+            <img src="images/b_4.gif"/>
+            <img src="images/b_5.gif"/>
+            <img src="images/b_6.gif"/>
+        </div>
+    </div>
+    <!--Footer -->
+</footer>
+
+</body>
+</html>
+<script type="text/javascript">
+    layui.use('layer', function () {
+        let layer = layui.layer;
+
+        $("#topcar").css({
+            "background": "rgb(240,240,240)",
+            "height": "50px",
+            "width": "1000px",
+        })
+        $("#gwcar").css({
+            "width": "1000px",
+            "border": "1px solid rgb(240,240,240)",
+            "margin": "auto"
+        });
+
+        let html = "";
+        $.get("http://localhost:8081/findgw", function (data) {
+            $.each(data.data, function (i, p) {
+                html += `<div class="info warp"><ul>
+                <li class="info_1"><input type="checkbox" class="ssid" value="${p.sid}"/></li>
+                <li class="info_2"><img src="${p.simgs}" width="80px"/></li>
+                <li class="info_3"><a>${p.stitle}</a></li>
+                <li class="info_5">￥<span class="price">${p.sprice}</span></li>
+                <li class="info_6">
+                    <button class="reduce" id="jian" style="border:0.5px solid #CBCBCB">-</button>
+                    <input name="count" class="numbers" value="${p.snumber}" style="border:0.5px solid #CBCBCB;padding-bottom: 5.9px"/>
+                    <button class="plus" id="jia" style="border:0.5px solid #CBCBCB">+</button>
+                </li>
+                <li class="info_7">￥<span>${p.snumber * p.sprice}</span></li>
+                <li class="info_8">
+                    <p><a style="margin-left: -35px;" onclick="delcar(${p.sid})">删除</a></p>
+                  </li>
+                  </ul></div>`;
+            })
+            $("#carinfo").append(html);
+        })
+
+
+    })
+
+    function delcar(sid) {
+        layer.confirm('确定删除该商品吗?', {icon: 3, title: '提示'}, function () {
+            $.post("http://localhost:8081/delcar", {"sid": sid}, function (data) {
+                if (data.data == 1) {
+                    layer.msg("删除成功！", {time: 1500, icon: 6, success: location.reload()})
+                }
+            })
+        });
+    }
+
+    function sq() {
+        let list = $(".info_7").children();
+        let list2 = $(".info_1").children();
+        let tprice = 0;
+        let tcount = 0;
+        for (let i = 0; i < list.length; i++) {
+            let flage = $(list2[i]).is(":checked")
+            if (flage) {
+                tprice += parseFloat($(list[i]).html());
+                tcount++;
+            }
+        }
+        (tcount == list.length) ? $("#all").prop("checked", true) : $("#all").prop("checked", false);
+        $("#tprice").html("￥" + tprice)
+        $("#tcount").html(tcount)
+    }
+
+    $(".info_1").live("click", function () {
+        sq();
+    })
+    $("[name=count]").live("change", function () {
+        let count = $(this).val();
+        let price = parseFloat($(this).parent().prev().children(":first").html());
+        if (count < 1) {
+            $(this).val(1);
+            count = 1;
+        } else {
+            $(this).val(count);
+        }
+        $(this).parent().next().children(":first").html(price * (count));
+        sq();
+    })
+
+    $(".plus").live("click", function () {
+        let count = parseInt($(this).prev().val());
+        let price = parseFloat($(this).parent().prev().children(":first").html());
+        $(this).prev().val(count + 1);
+        $(this).parent().next().children(":first").html(price * (count + 1));
+        sq();
+    })
+    $(".reduce").live("click", function () {
+        let count = parseInt($(this).next().val());
+        let price = parseFloat($(this).parent().prev().children(":first").html());
+        if ((count < 2)) {
+            $(this).next().val(1);
+            return;
+        } else {
+            $(this).next().val(count - 1);
+        }
+        $(this).parent().next().children(":first").html(price * (count - 1));
+        sq();
+    })
+    $("#all").click(function () {
+        $("#all").is(":checked") ? $(".info_1").children().prop("checked", true) : $(".info_1").children().prop("checked", false);
+        sq();
+    })
+
+    $(".butt").click(function() {
+        let list=$(".ssid:checked");
+        let num=[];
+        for (let i = 0; i < list.length; i++) {
+            num.push(list.eq(i).val())
+        }
+        $.post("http://localhost:8081/delcars",{"arrays":JSON.stringify(num)},function () {
+            let total_amount=parseInt($("#tprice").html().substring(1,$("#tprice").html().length));
+            location.href="http://localhost:8080/alipay?total_amount="+total_amount+"";
+        })
+    })
+
+
+</script>

@@ -24,7 +24,7 @@ public class swaggerconfig {
                 .apiInfo(new ApiInfoBuilder().title("测试demo")
                         .description("详细信息")
                         .version("1.0")
-                        .contact(new Contact("大老板", "www.qq.com", "www.123@qq.com"))
+                        .contact(new Contact("Hello", "www.baidu.com", "www.123@qq.com"))
                         .license("China dci")
                         .licenseUrl("www.Chinadci.com").build());
     }

@@ -49,8 +49,6 @@ public class TbShopcart implements Serializable {
     @ApiModelProperty(value = "商品价格")
     private BigDecimal sprice;
 
-    @ApiModelProperty(value = "商品总价")
-    private BigDecimal sprices;
 
 
 }
