@@ -4,6 +4,9 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.chinadci.oneshopreception.config.AlipayConfig;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,8 +15,10 @@ import java.util.UUID;
 
 @CrossOrigin
 @RestController
+@Api(tags = "用户CURD操作")
 public class alipayController {
     @RequestMapping("/alipay")//设置请求的路径
+    @ApiOperation(value="支付宝沙箱支付", notes="支付宝沙箱支付")
     public String toPay(String total_amount) throws Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
         //设置请求参数,并把配置类中的两个路径设置进去

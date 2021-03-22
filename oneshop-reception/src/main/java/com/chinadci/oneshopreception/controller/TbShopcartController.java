@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.chinadci.oneshopreception.entity.TbShopcart;
 import com.chinadci.oneshopreception.service.TbShopcartService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,11 +27,13 @@ import java.util.Map;
  */
 @RestController
 @CrossOrigin
+@Api(tags = "用户CURD操作")
 public class TbShopcartController {
     @Autowired
     private TbShopcartService shopcartService;
 
     @GetMapping("/findgw")
+    @ApiOperation(value="查询购物车所有信息")
     public Map<String, Object> findcar() {
         Map<String, Object> map = new HashMap<>();
         map.put("data", shopcartService.findall());
@@ -37,6 +41,7 @@ public class TbShopcartController {
     }
 
     @PostMapping("/addcar")
+    @ApiOperation(value="添加购物车")
     public Map<String, Object> addcar(TbShopcart tbShopcart) {
         Map<String, Object> map = new HashMap<>();
         map.put("data", shopcartService.insercar(tbShopcart));
@@ -44,6 +49,7 @@ public class TbShopcartController {
     }
 
     @PostMapping("/delcar")
+    @ApiOperation(value="删除购物车信息")
     public Map<String, Object> delcar(int sid) {
         Map<String, Object> map = new HashMap<>();
         map.put("data", shopcartService.del(sid));
@@ -51,6 +57,7 @@ public class TbShopcartController {
     }
 
     @PostMapping("/delcars")
+    @ApiOperation(value="删除多个购物车信息")
     public void DelIds(String arrays) {
         JSONArray jsonArray = (JSONArray) JSON.parse(arrays);
         List list = new ArrayList();

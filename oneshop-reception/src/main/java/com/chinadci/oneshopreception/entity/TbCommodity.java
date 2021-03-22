@@ -1,11 +1,14 @@
 package com.chinadci.oneshopreception.entity;
 
 import java.math.BigDecimal;
+
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,7 +16,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zyk
@@ -22,13 +25,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("tb_commodity")
-@ApiModel(value="TbCommodity对象", description="")
+@ApiModel(value = "TbCommodity对象", description = "")
 public class TbCommodity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "商品id")
-      @TableId(value = "cid", type = IdType.AUTO)
+    @TableId(value = "cid", type = IdType.AUTO)
     private Integer cid;
 
     @ApiModelProperty(value = "图片地址")

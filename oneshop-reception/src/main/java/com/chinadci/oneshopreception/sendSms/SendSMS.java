@@ -2,12 +2,15 @@ package com.chinadci.oneshopreception.sendSms;
 
 import com.cloopen.rest.sdk.BodyType;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
+import io.swagger.annotations.ApiParam;
+
 
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 
 public class SendSMS {
+    @ApiParam(name = "SendSMS",value = "发送短信")
     public static String sendsms(String phone) {
         //生产环境请求地址：app.cloopen.com
         String serverIp = "app.cloopen.com";

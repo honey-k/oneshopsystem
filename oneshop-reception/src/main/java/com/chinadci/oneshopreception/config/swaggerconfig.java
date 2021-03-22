@@ -21,7 +21,7 @@ public class swaggerconfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.chinadci.oneshopreception.controller"))
                 .paths(PathSelectors.any()).build()
-                .apiInfo(new ApiInfoBuilder().title("测试demo")
+                .apiInfo(new ApiInfoBuilder().title("One Shop")
                         .description("详细信息")
                         .version("1.0")
                         .contact(new Contact("Hello", "www.baidu.com", "www.123@qq.com"))
