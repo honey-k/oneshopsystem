@@ -60,6 +60,9 @@ public class TbUserController {
         }
         return map;
     }
+    public void login(){
+        System.out.println(111);
+    }
 
 }
 
