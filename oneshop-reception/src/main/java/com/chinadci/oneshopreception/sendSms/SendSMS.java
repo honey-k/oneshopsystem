@@ -52,8 +52,6 @@ public class SendSMS {
         return results;
     }
 
-    public void sms(){
-        System.out.println("a");
-    }
+
 }
 
