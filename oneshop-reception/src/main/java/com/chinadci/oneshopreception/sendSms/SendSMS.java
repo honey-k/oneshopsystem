@@ -53,7 +53,7 @@ public class SendSMS {
     }
 
     public void sms(){
-
+        System.out.println("a");
     }
 }
 
