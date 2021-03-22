@@ -52,5 +52,8 @@ public class SendSMS {
         return results;
     }
 
+    public void sms(){
+
+    }
 }
 
